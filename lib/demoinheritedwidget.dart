@@ -24,6 +24,7 @@ class _DemoInheritedWidgetState extends State<DemoInheritedWidget> {
       body: Container(
         child: Column(
           children: [
+            Text(text),
             ElevatedButton(onPressed: setText, child: Text("Click Me")),
             Ongba(
               child: Chame(
