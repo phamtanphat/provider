@@ -27,11 +27,14 @@ class _DemoInheritedWidgetState extends State<DemoInheritedWidget> {
           children: [
             Text(text),
             ElevatedButton(onPressed: setText, child: Text("Click Me")),
-            Ongba(
-              child: Chame(
-                child: Concai(),
-              ),
-            ),
+            MyInheritedWidget(
+                child: Ongba(
+                  child: Chame(
+                    child: Concai(),
+                  ),
+                ),
+                number: number
+            )
           ],
         ),
       ),
@@ -45,10 +48,13 @@ class MyInheritedWidget extends InheritedWidget{
 
   MyInheritedWidget({required this.child, required this.number}) : super(child: child);
 
+  static MyInheritedWidget of(BuildContext context){
+    return context.dependOnInheritedWidgetOfExactType()!;
+  }
+
   @override
   bool updateShouldNotify(covariant MyInheritedWidget oldWidget) {
-    // TODO: implement updateShouldNotify
-    throw UnimplementedError();
+    return true;
   }
 
 }
