@@ -8,6 +8,7 @@ class DemoInheritedWidget extends StatefulWidget {
 
 class _DemoInheritedWidgetState extends State<DemoInheritedWidget> {
   String text = "Xin chào";
+  int number = 0;
 
   void setText(){
     setState(() {
@@ -37,6 +38,21 @@ class _DemoInheritedWidgetState extends State<DemoInheritedWidget> {
     );
   }
 }
+
+class MyInheritedWidget extends InheritedWidget{
+  Widget child;
+  late int number;
+
+  MyInheritedWidget({required this.child, required this.number}) : super(child: child);
+
+  @override
+  bool updateShouldNotify(covariant MyInheritedWidget oldWidget) {
+    // TODO: implement updateShouldNotify
+    throw UnimplementedError();
+  }
+
+}
+
 
 class Ongba extends StatelessWidget {
   late Widget child;
